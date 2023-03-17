@@ -25,7 +25,7 @@ int feedForCut = 1129;  //623mm or 1129 pulses
 
 #define signalInputPin 8
 #define pulseOutputPin 0
-#define delay_ms 3  // pulse delay in ms
+#define delay_ms 4  // pulse delay in ms
 
 void setup() {
   mcp.begin_I2C(0x21);  // use default address 0x21
@@ -36,7 +36,6 @@ void setup() {
   ads.begin();
   mcp.pinMode(pulseOutputPin, OUTPUT);
   mcp.pinMode(signalInputPin, INPUT);
-  mcp.pinMode(disablePin, INPUT);
 }
 
 
@@ -99,15 +98,15 @@ void move(int pulseL, int theDelay) {
       mcp.digitalWrite(0, LOW);
       delay(theDelay);
     }
-    else if (pulseL > 199 && pulseL < 400) {
-      for (int i = 0; i < feedForCut; i++) {
-        mcp.digitalWrite(0, HIGH);
-        delay(1);
-        mcp.digitalWrite(0, LOW);
-        delay(theDelay);
-        else {
-          Serial.println("Pulse length out of expected range");
-        }
-      }
+  } else if (pulseL > 199 && pulseL < 400) {
+    for (int i = 0; i < feedForCut; i++) {
+      mcp.digitalWrite(0, HIGH);
+      delay(1);
+      mcp.digitalWrite(0, LOW);
+      delay(theDelay);
     }
+  } else {
+    Serial.println("Pulse length out of expected range");
   }
+}
+
