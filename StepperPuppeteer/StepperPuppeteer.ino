@@ -19,13 +19,14 @@ long pulseStart = 0;
 int pulseEnd = 0;
 bool armed = false;
 int testLength = 500;
-int feedForPick = 620;  //342mm or 620 pulses
-int feedForCut = 1129;  //623mm or 1129 pulses
-
+// int feedForPick = 620;  //342mm or 620 pulses
+// int feedForCut = 1129;  //623mm or 1129 pulses
+int feedForPick = 570;  
+int feedForCut = 1108;  
 
 #define signalInputPin 8
 #define pulseOutputPin 0
-#define delay_ms 4  // pulse delay in ms
+#define delay_ms 1  // pulse delay in ms
 
 void setup() {
   mcp.begin_I2C(0x21);  // use default address 0x21
