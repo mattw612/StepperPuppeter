@@ -1,6 +1,8 @@
-// (0.552mm dispense)/(1 pulse to stepper driver)
-// First dispense before pick: 342mm or 620 pulses
-// Second dispense before cut: 623mm or 1129 pulses
+
+
+// (0.597mm dispense)/(1 pulse to stepper driver) updated 3.30 mm
+
+
 // Send a high signal for more than 0 and less than 200 ms to move stepper for 'First Dispense'
 // Send a high signal for more than 199 and less than 400 ms to move stepper for 'Second Dispense'
 
@@ -19,10 +21,9 @@ long pulseStart = 0;
 int pulseEnd = 0;
 bool armed = false;
 int testLength = 500;
-// int feedForPick = 620;  //342mm or 620 pulses
-// int feedForCut = 1129;  //623mm or 1129 pulses
+
 int feedForPick = 570;  
-int feedForCut = 1108;  
+int feedForCut = 1085;  
 
 #define signalInputPin 8
 #define pulseOutputPin 0
