@@ -22,8 +22,9 @@ int pulseEnd = 0;
 bool armed = false;
 int testLength = 500;
 
-int feedForPick = 570;  
-int feedForCut = 1085;  
+int feedForPick = 1655;  
+int feedForCut = 1655;
+
 
 #define signalInputPin 8
 #define pulseOutputPin 0
@@ -100,7 +101,7 @@ void move(int pulseL, int theDelay) {
       mcp.digitalWrite(0, LOW);
       delay(theDelay);
     }
-  } else if (pulseL > 199 && pulseL < 400) {
+  } else if (pulseL > 199 && pulseL < 4000) {
     for (int i = 0; i < feedForCut; i++) {
       mcp.digitalWrite(0, HIGH);
       delay(1);
