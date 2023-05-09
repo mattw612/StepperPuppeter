@@ -1,6 +1,6 @@
 
 
-// (0.597mm dispense)/(1 pulse to stepper driver) updated 3.30 mm
+// (0.597mm dispense)/(1 pulse to stepper driver) updated 3.30 
 
 
 // Send a high signal for more than 0 and less than 200 ms to move stepper for 'First Dispense'
@@ -22,7 +22,7 @@ int pulseEnd = 0;
 bool armed = false;
 int testLength = 500;
 
-int feedForPick = 1655;  
+int retractForCut = 5;  
 int feedForCut = 1655;
 
 
@@ -95,14 +95,14 @@ void loop() {
 void move(int pulseL, int theDelay) {
 
   if (pulseL > 0 && pulseL < 200) {
-    for (int i = 0; i < feedForPick; i++) {
+    for (int i = 0; i < feedForCut; i++) {
       mcp.digitalWrite(0, HIGH);
       delay(1);
       mcp.digitalWrite(0, LOW);
       delay(theDelay);
     }
   } else if (pulseL > 199 && pulseL < 4000) {
-    for (int i = 0; i < feedForCut; i++) {
+    for (int i = 0; i < retractForCut; i++) {
       mcp.digitalWrite(0, HIGH);
       delay(1);
       mcp.digitalWrite(0, LOW);
