@@ -23,7 +23,7 @@ bool armed = false;
 int testLength = 500;
 
 int retractForCut = 5;  
-int feedForCut = 1645;
+int feedForCut = 1653;
 
 
 #define signalInputPin 8
